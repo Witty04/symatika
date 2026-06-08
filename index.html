@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symatika – Silabus Informatika</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon"><img src="img/logo-symatika.png" alt="Logo Symatika"></span>
+      <span class="brand-name">Symatika</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html" class="nav-item active">
+          <i class='bx bx-home-alt-2 nav-icon'></i>Home
+        </a>
+      </li>
+      <li>
+        <a href="materials.html" class="nav-item">
+          <i class='bx bx-book-open nav-icon'></i>Materials
+        </a>
+      </li>
+      <li>
+        <a href="resources.html" class="nav-item">
+          <i class='bx bx-folder nav-icon'></i>Resources
+        </a>
+      </li>
+      <li>
+        <a href="behind.html" class="nav-item">
+          <i class='bx bx-info-circle nav-icon'></i>Sysinfo
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <!-- data-delay = jeda animasi masuk (ms) -->
+      <h1 class="hero-title scroll-reveal" data-delay="0">
+        <span class="title-accent">SYMATIKA</span>
+      </h1>
+      <h2 class="hero-subtitle scroll-reveal" data-delay="100">Silabus Informatika</h2>
+      <p class="hero-desc scroll-reveal" data-delay="200">
+        Platform pembelajaran Informatika modern yang menyediakan materi
+        semester, resources coding, dan panduan belajar untuk membantu
+        mahasiswa berkembang di dunia teknologi.
+      </p>
+      <div class="hero-buttons scroll-reveal" data-delay="300">
+        <a href="materials.html" class="btn btn-primary">Explore Materials</a>
+        <a href="behind.html" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES SECTION ========== -->
+  <section class="features">
+    <div class="section-label scroll-reveal" data-delay="0">FEATURES</div>
+    <h2 class="section-title scroll-reveal" data-delay="100">Ruang Digital untuk Mahasiswa Informatika</h2>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card scroll-reveal" data-delay="0">
+        <div class="feature-card-header">
+          <div class="feature-icon-box icon-neon-purple">
+            <i class='bx bxs-book-open feature-icon'></i>
+          </div>
+          <span class="icon-label">Learning Materials</span>
+        </div>
+        <p class="feature-card-desc">
+          Kumpulan materi belajar dari jurusan Informatika yang tersusun
+          rapi dan mudah diakses
+        </p>
+      </div>
+      <!-- Card 2 -->
+      <div class="feature-card scroll-reveal" data-delay="150">
+        <div class="feature-card-header">
+          <div class="feature-icon-box icon-neon-cyan">
+            <i class='bx bx-terminal'></i>
+          </div>
+          <span class="icon-label">Developer Resources</span>
+        </div>
+        <p class="feature-card-desc">
+          Kumpulan software, platform, dan resource penting untuk
+          mahasiswa Informatika
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="how-it-works">
+    <div class="section-label scroll-reveal" data-delay="0">HOW IT WORKS</div>
+    <div class="steps-container">
+      <div class="step scroll-reveal" data-delay="0">
+        <div class="step-circle circle-green"><i class='bx bx-select-multiple'></i></div>
+        <div class="step-connector"></div>
+        <h3 class="step-title">Pilih Semester</h3>
+        <p class="step-desc">Temukan materi berdasarkan semester</p>
+      </div>
+      <div class="step scroll-reveal" data-delay="150">
+        <div class="step-circle circle-blue"><i class='bx bx-brain'></i></div>
+        <div class="step-connector"></div>
+        <h3 class="step-title">Akses Materi</h3>
+        <p class="step-desc">Buka PDF, catatan, dan resources dengan mudah</p>
+      </div>
+      <div class="step scroll-reveal" data-delay="300">
+        <div class="step-circle circle-pink"><i class='bx bx-laptop'></i></div>
+        <h3 class="step-title">Belajar & Berkembang</h3>
+        <p class="step-desc">Jelajahi resources teknologi untuk mendukung perjalanan belajarmu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEARNING MATERIALS PREVIEW ========== -->
+  <section class="preview">
+    <div class="preview-header scroll-reveal" data-delay="0">
+      <div>
+        <div class="section-label">LEARNING MATERIALS PREVIEW</div>
+        <h2 class="preview-title">Curi Start Semester Ini</h2>
+      </div>
+      <a href="materials.html" class="view-all-link">View All Materials →</a>
+    </div>
+
+    <div class="preview-grid">
+      <!-- Preview Card 1 -->
+      <div class="preview-card scroll-reveal" data-delay="0">
+        <div class="preview-card-thumb">
+          <img src="img/alpro-img.jpg" alt="alpro" class="preview-banner-img">
+        </div>
+        <div class="preview-card-body">
+          <div class="preview-card-meta">
+            <span class="preview-card-title">Algoritma &amp; Pemrograman</span>
+            <span class="badge badge-sem1">Semester 1</span>
+          </div>
+          <p class="preview-card-desc">
+            Dasar algoritma, flowchart, dan pemrograman menggunakan bahasa C++
+          </p>
+          <a href="materials.html" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Preview Card 2 -->
+      <div class="preview-card scroll-reveal" data-delay="120">
+        <div class="preview-card-thumb">
+          <img src="img/basdat-img.jpg" alt="basdat" class="preview-banner-img">
+        </div>
+        <div class="preview-card-body">
+          <div class="preview-card-meta">
+            <span class="preview-card-title">Basis Data</span>
+            <span class="badge badge-sem2">Semester 2</span>
+          </div>
+          <p class="preview-card-desc">
+            Mempelajari Konsep basis data, ERD, normalisasi, SQL, dan manajemen data
+          </p>
+          <a href="materials.html" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Preview Card 3 -->
+      <div class="preview-card scroll-reveal" data-delay="240">
+        <div class="preview-card-thumb">
+          <img src="img/sdt-img.jpg" alt="sdt" class="preview-banner-img">
+        </div>
+        <div class="preview-card-body">
+          <div class="preview-card-meta">
+            <span class="preview-card-title">Struktur Data</span>
+            <span class="badge badge-sem2">Semester 2</span>
+          </div>
+          <p class="preview-card-desc">
+            Mempelajari konsep Array, stack, queue, tree, graph, dan algoritma pencarian
+          </p>
+          <a href="materials.html" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER CTA ========== -->
+  <section class="footer-cta scroll-reveal" data-delay="0">
+    <p class="footer-cta-text">SELAMAT BELAJAR !!</p>
+    <div class="footer-divider"></div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 symatika. All right reserved</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10, 11, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-icon {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;  
+  width: 32px;
+  height: 32px;
+  background: rgba(155,92,245,0.1);
+  border-radius: 6px;
+  box-shadow: 0 0 8px var(--glow-purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara Icon dan Teks */
+  padding: 8px 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary); /* Warna teks awal agak redup */
+  border-radius: 6px;
+  position: relative;
+  transition: all var(--transition);
+}
+
+/* Ukuran Icon Navigasi */
+.nav-icon {
+  font-size: 1.2rem;
+  transition: color var(--transition);
+}
+
+/* ──── EFEK HOVER & ACTIVE (Sesuai Gambar Contoh) ──── */
+
+/* Ketika menu di-hover atau sedang aktif/diklik */
+.nav-item:hover,
+.nav-item.active {
+  color: var(--accent-violet); /* Teks & Icon otomatis berubah jadi ungu bersamaan */
+  background: rgba(155, 92, 245, 0.08); /* Efek background highlight tipis */
+}
+
+/* Garis indikator tipis di bagian bawah menu yang aktif */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px; /* Pas menempel di border bawah navbar */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-violet);
+  box-shadow: 0 0 8px var(--accent-violet);
+}
+
+/* ---------- PAGE HEADER ----------
+   Disamakan persis dengan materials.css          */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 56px 60px 28px;
+}
+
+.page-header:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+  border-color: rgba(22, 83, 175, 0.863);
+  box-shadow:
+    0 0 20px rgba(14, 42, 201, 0.2),
+    0 8px 32px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(17, 114, 22, 0.05);
+}
+
+.page-header-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.icon-neon-purple {
+  color: #7886fd;
+  border-color: rgba(130, 163, 255, 0.5);
+  box-shadow: 0 0 22px rgba(138, 130, 255, 0.3), inset 0 0 10px rgba(130, 132, 255, 0.2);
+  filter: drop-shadow(0 0 5px #b882ff);
+}
+
+.page-header:hover .icon-neon-purple {
+  box-shadow: 0 0 35px rgba(113, 122, 252, 0.7), inset 0 0 12px rgba(184, 130, 255, 0.4);
+  filter: drop-shadow(0 0 7px #8299ff);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.page-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ---------- CATEGORY FILTER TABS ---------- */
+.res-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 60px 40px;
+}
+
+.res-tab-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(232, 234, 246, 0.18);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.res-tab-btn:hover {
+  border-color: var(--accent-purple);
+  color: var(--text-primary);
+}
+
+.res-tab-btn.active {
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
+  color: #fff;
+  box-shadow: 0 0 16px var(--glow-purple);
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.res-main {
+  padding: 0 60px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+/* ── Section wrapper (satu per kategori) ── */
+.res-section {
+  /* JS akan menambah/hapus display:none saat filter aktif */
+}
+
+/* ── Section title (label atas tiap kategori) ── */
+.res-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* Titik dekoratif di depan judul section */
+.res-section-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  box-shadow: 0 0 8px var(--glow-purple);
+  flex-shrink: 0;
+}
+
+.notes-box {
+  margin: 0 40px 36px;
+  padding: 22px 28px;
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.notes-neon-icon {
+  font-size: 1.45rem;
+  color: #f3ff82;
+  filter: drop-shadow(0 0 5px rgba(255, 247, 130, 0.85)) drop-shadow(0 0 10px rgba(255, 247, 130, 0.4));
+}
+
+.notes-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.notes-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+/* ---------- CARD GRID ----------
+   4 kolom, konsisten dengan mat-grid             */
+.dev-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* ---------- DEVELOPER RESOURCE CARD ---------- */
+.dev-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;          /* Agar footer selalu di bawah */
+  overflow: visible;
+  position: relative;
+  transition:
+    transform    0.28s ease,
+    box-shadow   0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* HOVER: terangkat + neon glow (sama dengan mat-card) */
+.dev-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.15),
+    0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Baris atas card: ikon + badge ── */
+.dev-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 16px 4px;
+}
+
+/* Kotak pembungkus logo (Disesuaikan agar netral untuk gambar logo asli) */
+.dev-icon-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03); /* Warna diubah jadi netral supaya logo aslinya kelihatan jelas */
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 6px; /* Memberikan jarak sedikit di dalam kotak agar logo tidak mentok ke border */
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+/* Efek pas kartu di-hover */
+.dev-card:hover .dev-icon-wrap {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(124, 58, 237, 0.4);
+  transform: scale(1.05); /* Sedikit membesar agar terlihat interaktif */
+}
+
+/* TAMBAHKAN KODE BARU INI DI BAWAHNYA */
+/* Pengaturan gambar logo agar proporsional dan tidak gepeng */
+.dev-card-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Paling penting! Menjaga rasio asli gambar logo kamu */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); /* Efek shadow halus di bawah logo */
+}
+
+
+/* ── Body card: judul + deskripsi ── */
+.dev-card-body {
+  padding: 12px 16px 8px;
+  flex: 1;                         /* Agar mengisi ruang tersisa */
+}
+
+.dev-card-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.dev-card-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Footer card: tombol Open ── */
+.dev-card-footer {
+  padding: 12px 16px 18px;
+}
+
+/* ── Tombol "Open →" ── */
+.btn-dev-action {
+  display: inline-block;
+  padding: 8px 22px;
+  background: var(--accent-purple);
+  color: #fff;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border: 1px solid var(--accent-purple);
+}
+
+.btn-dev-action:hover {
+  background: var(--accent-violet);
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 14px var(--glow-purple);
+  transform: translateY(-1px);
+}
+
+/* ---------- BADGE KATEGORI ---------- */
+.dev-badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Badge warna per kategori */
+.badge-coding {
+  background: rgba(124, 58, 237, 0.18);
+  color: var(--accent-violet);
+  border: 1px solid rgba(124, 58, 237, 0.28);
+}
+
+.badge-software {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.badge-ai {
+  background: rgba(6, 182, 212, 0.14);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.24);
+}
+
+.badge-learning {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.24);
+}

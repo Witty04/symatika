@@ -1,0 +1,571 @@
+/* ================================================
+   SYMATIKA – behind.css
+   Styles untuk halaman Behind The Symatika
+   (Menggunakan variabel CSS dari style.css)
+   ================================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10, 11, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-icon {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;  
+  width: 32px;
+  height: 32px;
+  background: rgba(155,92,245,0.1);
+  border-radius: 6px;
+  box-shadow: 0 0 8px var(--glow-purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara Icon dan Teks */
+  padding: 8px 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary); /* Warna teks awal agak redup */
+  border-radius: 6px;
+  position: relative;
+  transition: all var(--transition);
+}
+
+/* Ukuran Icon Navigasi */
+.nav-icon {
+  font-size: 1.2rem;
+  transition: color var(--transition);
+}
+
+/* ──── EFEK HOVER & ACTIVE (Sesuai Gambar Contoh) ──── */
+
+/* Ketika menu di-hover atau sedang aktif/diklik */
+.nav-item:hover,
+.nav-item.active {
+  color: var(--accent-violet); /* Teks & Icon otomatis berubah jadi ungu bersamaan */
+  background: rgba(155, 92, 245, 0.08); /* Efek background highlight tipis */
+}
+
+/* Garis indikator tipis di bagian bawah menu yang aktif */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px; /* Pas menempel di border bawah navbar */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-violet);
+  box-shadow: 0 0 8px var(--accent-violet);
+}
+/* ---------- PAGE INTRO (Header terpusat) ---------- */
+/* ---------- PERBAIKAN HEADER INTRO ---------- */
+.behind-intro {
+  /* KUNCI 1: Lebar maksimal kontainer dinaikkan agar teks judul punya ruang luas untuk memanjang */
+  max-width: 1100px; 
+  margin: 0 auto;
+  padding: 64px 40px 0;
+  text-align: center;
+}
+
+/* Label kecil "SYSINFO" di atas judul */
+.behind-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Judul "Behind The Symatika" */
+.behind-title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  
+  /* KUNCI 2: Memaksa teks judul wajib lurus satu baris ke samping */
+  white-space: nowrap; 
+}
+
+/* Deskripsi di bawah judul (Tetap dibuat proporsional di tengah agar nyaman dibaca) */
+.behind-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 680px; /* Menjaga teks deskripsi tidak ikut melar ke samping */
+  margin: 0 auto 36px;
+}
+
+/* Garis pembatas horizontal */
+.behind-divider {
+  width: 100%;
+  max-width: 680px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 234, 246, 0.15),
+    transparent
+  );
+  margin: 0 auto;
+}
+
+/* RESPONSIVE: Khusus layar HP/Tablet */
+@media (max-width: 768px) {
+  .behind-title {
+    white-space: normal; /* Di HP judulnya baru boleh bertumpuk kembali */
+    font-size: 2rem;     /* Ukurannya dikecilkan biar muat di layar HP */
+  }
+  .behind-intro {
+    padding: 40px 20px 0;
+  }
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+.behind-main {
+  padding: 60px 60px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.behind-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Label section terpusat */
+.section-label-center {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Label section rata kiri */
+.section-label-left {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* ════════════════════════════════════
+   PROFIL DEVELOPER LAYOUT
+   2 kolom: foto (kiri) + info (kanan)
+   ════════════════════════════════════ */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* ── KOLOM KIRI: Foto Profil ── */
+.profile-left {
+  position: sticky;
+  top: 100px;         /* Foto tetap di posisi saat scroll */
+}
+
+/* Wrapper foto dengan efek glow */
+.profile-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;  /* Proporsi potret */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-photo-wrap:hover {
+  box-shadow: 0 0 48px rgba(124, 58, 237, 0.3);
+}
+
+/* Foto profil */
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Placeholder jika foto belum ada */
+.profile-photo-placeholder {
+  display: none;           /* Ditampilkan oleh JS/onerror jika foto gagal load */
+  width: 100%;
+  height: 100%;
+  background: var(--bg-card);
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.profile-photo-placeholder i {
+  font-size: 5rem;
+  color: var(--text-muted, #5a6080);
+}
+
+/* ── KOLOM KANAN: Info Developer ── */
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+.profile-role {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-violet);
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.profile-bio {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+/* Kontak (email & HP) */
+.profile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+}
+
+/* ── Media Sosial (3 kotak card) ── */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+/* Setiap kotak media sosial */
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 90px;
+  padding: 14px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    box-shadow   0.3s ease,
+    transform    0.3s ease,
+    background   0.3s ease;
+}
+
+/* HOVER: border ungu + glow */
+.social-card:hover {
+  border-color: rgba(124, 58, 237, 0.6);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.25);
+  background: var(--bg-card);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--accent-violet);
+  transition: color 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  color: #c084fc;
+}
+
+.social-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* ════════════════════════════════════
+   SECTION 2: TERMINAL + BUILT WITH
+   2 kolom berdampingan
+   ════════════════════════════════════ */
+.sysinfo-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── TERMINAL WINDOW ── */
+.terminal-wrap {
+  background: #05060f;          /* Lebih gelap dari bg-primary, kesan terminal nyata */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform    0.3s ease,
+    box-shadow   0.3s ease,
+    border-color 0.3s ease;
+}
+
+.terminal-wrap:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.2),
+    0 10px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Bar atas ala jendela Mac/Linux */
+.terminal-topbar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: #0c0d1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 3 titik lingkaran (merah, kuning, hijau) */
+.terminal-dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-red    { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green  { background: #27c93f; }
+
+.terminal-title-bar {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(232, 234, 246, 0.3);
+  margin-left: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* Isi terminal */
+.terminal-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Baris perintah (prompt) */
+.terminal-line {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.t-prompt { color: #a78bfa; }
+.t-sep    { color: rgba(232, 234, 246, 0.3); }
+.t-path   { color: #60a5fa; }
+.t-dollar { color: rgba(232, 234, 246, 0.5); margin-left: 2px; }
+.t-cmd    { color: var(--text-primary); margin-left: 6px; }
+
+/* Output log baris-baris sistem */
+.terminal-output {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px 0 6px;
+  padding-left: 4px;
+  border-left: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.t-log {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.t-key   { color: rgba(232, 234, 246, 0.45); min-width: 108px; display: inline-block; }
+.t-colon { color: rgba(232, 234, 246, 0.3); }
+.t-val   { color: #c4b5fd; }                   /* Nilai biasa: violet muda */
+.t-val-green { color: #4ade80; }               /* Nilai OK: hijau neon */
+
+/* Kursor berkedip di baris terakhir */
+.terminal-cursor-line {
+  margin-top: 4px;
+}
+
+.t-cursor {
+  display: inline-block;
+  color: #4ade80;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  animation: cursorBlink 0.85s step-end infinite;
+  margin-left: 6px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── BUILT WITH ── */
+/* ── BUILT WITH ── */
+/* ── BUILT WITH ── */
+.builtwith-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tetap 4 kolom berjejer ke samping */
+.builtwith-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Card dibuat proporsional (Tinggi otomatis mengikuti konten, TIDAK kegedean) */
+.builtwith-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 20px 12px 16px; /* Padding disesuaikan */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  transition:
+    transform    var(--transition),
+    box-shadow   var(--transition),
+    border-color var(--transition),
+    background   var(--transition);
+}
+
+/* HOVER: terangkat + neon glow */
+.builtwith-card:hover {
+  transform: translateY(-5px);
+  background: var(--bg-card-hover);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Kotak pembungkus ikon dibuat pas di tengah dan agak besar sedikit */
+.builtwith-icon-wrap {
+  width: 54px;
+  height: 54px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: transform var(--transition);
+}
+
+.builtwith-card:hover .builtwith-icon-wrap {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* UKURAN IKON DIPERBESAR (Biar gak kelihatan ciut) */
+.builtwith-icon {
+  font-size: 2.2rem; /* Dinaikkan dari 1.8rem agar mantap dilihat */
+}
+
+/* Teks nama teknologi */
+.builtwith-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* KEMBALIKAN DESKRIPSI DI BAWAH IKON */
+.builtwith-desc {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* RESPONSIVE: Di HP otomatis jadi 2 kolom berjejer kebawah biar gak sempit */
+@media (max-width: 768px) {
+  .builtwith-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

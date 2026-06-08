@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Resources – Symatika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Boxicons untuk ikon resource -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/resources.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon"><img src="img/logo-symatika.png" alt="Logo Symatika"></span>
+      <span class="brand-name">Symatika</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html" class="nav-item active">
+          <i class='bx bx-home-alt-2 nav-icon'></i>Home
+        </a>
+      </li>
+      <li>
+        <a href="materials.html" class="nav-item">
+          <i class='bx bx-book-open nav-icon'></i>Materials
+        </a>
+      </li>
+      <li>
+        <a href="resources.html" class="nav-item">
+          <i class='bx bx-folder nav-icon'></i>Resources
+        </a>
+      </li>
+      <li>
+        <a href="behind.html" class="nav-item">
+          <i class='bx bx-info-circle nav-icon'></i>Sysinfo
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header scroll-reveal" data-delay="0">
+    <span class="page-header-icon icon-neon-purple">
+        <i class='bx bx-folder'></i>
+    </span>
+    <div>
+      <h1 class="page-title">Developer Resources</h1>
+      <p class="page-desc">Koleksi platform, tools, dan referensi yang membantu pengembangan belajar dan berkarya di bidang teknologi. </p>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY TABS ========== -->
+  <div class="res-tabs scroll-reveal" data-delay="80">
+    <button class="res-tab-btn active" data-cat="all">All Resources</button>
+    <button class="res-tab-btn" data-cat="Coding Sites">Coding Sites</button>
+    <button class="res-tab-btn" data-cat="Software">Software</button>
+    <button class="res-tab-btn" data-cat="AI Tools">AI Tools</button>
+    <button class="res-tab-btn" data-cat="Learning">Learning</button>
+  </div>
+
+  <div class="notes-box scroll-reveal" data-delay="180">
+    <div class="notes-header">
+      <i class='bx bx-error-alt notes-neon-icon'></i>
+      <span class="notes-title">NOTES</span>
+    </div>
+    <p class="notes-text">
+      Rekomendasi tools dan platform di bawah ini merupakan yang paling populer dan paling sering dipakai oleh anak-anak informatika dalam perkuliahan
+      sehari-hari. Tentu saja diluar sana masih ada banyak sekali tools-tools dan situs keren lainnya di internet !!.
+      Jadikan daftar di halaman ini sebagai langkah awal atau referensi utamamu yaa. Jangan ragu untuk mengeksplorasi tools lain yang
+      sesuai dengan kenyamanan kodingmu !!
+    </p>
+  </div>
+  <!-- ========== MAIN GRID ========== -->
+  <main class="res-main">
+
+    <!-- ────── SECTION: CODING SITES ────── -->
+    <div class="res-section" data-section="Coding Sites">
+      <h2 class="res-section-title scroll-reveal" data-delay="0">
+        <span class="res-section-dot"></span>Recommended Coding Sites
+      </h2>
+      <div class="dev-grid" id="devGrid-coding">
+
+        <div class="dev-card scroll-reveal" data-delay="0" data-cat="Coding Sites">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/github.jpg" alt="logo github" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-coding">Coding Sites</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">GitHub</h3>
+            <p class="dev-card-desc">Platform yang digunakan untu menyimpan, mengelola, dan membagikan proyek pemrograman. Dengan github, pengembang dapat melacak perubahan kode, berkolaborasi dengan tim, dan mengembangkan proyek secara lebih terorganisir.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://github.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="80" data-cat="Coding Sites">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/dex.jpg" alt="logo codédex" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-coding">Coding Sites</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Codédex</h3>
+            <p class="dev-card-desc">Platform pembelajaran coding interaktif yang membantu pemula mempelajari berbagai bahasa pemrograman melalui pengalaman belajar yang menarik dan terstruktur.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.codedex.io" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="160" data-cat="Coding Sites">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/visual.jpg" alt="logo visualgo" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-coding">Coding Sites</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Visualgo.net</h3>
+            <p class="dev-card-desc">Platform pembelajaran online gratis yang membantu pengguna memahami struktur data dan algoritma melalui visualisasi serta animasi interaktif.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://visualgo.net" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="240" data-cat="Coding Sites">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/neet.jpg" alt="logo neetcode" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-coding">Coding Sites</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">NeetCode</h3>
+            <p class="dev-card-desc">Platform pembelajaran yang membantu pengguna mempersiapkan coding interview dan meningkatkan kemampuan pemecahan masalah dalam pemrograman.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://neetcode.io" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+         <div class="dev-card scroll-reveal" data-delay="320" data-cat="Coding Sites">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/mee.jpg" alt="logo SideMe" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-coding">Coding Sites</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">SideMe</h3>
+            <p class="dev-card-desc">Platform pembelajaran coding yang menggunakan konsep gamifikasi interaktif untuk membuat proses belajar pemrigraman menjadi lebih menyenangkan.
+              Melalui materi, tantangan, dan latihan yang terstruktur , pengguna dapat mempelajari berbagai konsep pemrograman secara bertahap langsung dari perangkat mereka.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────── SECTION: SOFTWARE & TOOLS ────── -->
+    <div class="res-section" data-section="Software">
+      <h2 class="res-section-title scroll-reveal" data-delay="0">
+        <span class="res-section-dot"></span>Software &amp; Tools
+      </h2>
+      <div class="dev-grid" id="devGrid-software">
+
+        <div class="dev-card scroll-reveal" data-delay="0" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/vscode.jpg" alt="logo vscode" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Visual Studio Code</h3>
+            <p class="dev-card-desc">Code editor yang mendukung berbagai bahasa pemrograman dan menyediakan fitur lengkap untuk membantu proses pengembangan perangkat lunak.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://code.visualstudio.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="80" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/wokwi.jpg" alt="logo wokwi" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Wokwi</h3>
+            <p class="dev-card-desc">Platform simulasi elektronik berbasis web yang memungkinkan pengguna membuat dan menguji proyek mikrokontroler secara virtual.
+              Wokwi ini mendukung berbagai perangkat seperti Arduino, ESP32, dll.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://wokwi.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="160" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/arduino.jpg" alt="logo arduino ide" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Arduino IDE</h3>
+            <p class="dev-card-desc">Software untuk membuat dan mengunggah program ke papan Arduino dalam pengembangan proyek elektronika dan IoT.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.arduino.cc/en/software" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="240" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/xampp.jpg" alt="logo xampp" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">XAMPP</h3>
+            <p class="dev-card-desc">Software server lokal yang digunakan untuk mengembangkan dan menguji website atau aplikasi web secara offline di komputer.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.apachefriends.org" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="320" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/code.jpg" alt=" logo code blocks" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Code::Blocks</h3>
+            <p class="dev-card-desc">IDE open-source yang ringan dan cepat khusus untuk menulis serta melakukan compile bahasa pemrograman C dan C++.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.codeblocks.org" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="400" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/online.jpg" alt ="online gdb" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">OnlineGDB</h3>
+            <p class="dev-card-desc">Compiler dan debugger online instan yang sangat praktis untuk menguji kode C++ atau bahasa lain secara cepat di browser.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.onlinegdb.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+         <div class="dev-card scroll-reveal" data-delay="400" data-cat="Software">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/git.jfif" alt ="git" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-software">Software</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Git</h3>
+            <p class="dev-card-desc">Software yang berfungsi untuk mencatat dan melacak setiap perubahan pada file atau kode proyek dari waktu ke waktu.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://git-scm.com/" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────── SECTION: AI TOOLS ────── -->
+    <div class="res-section" data-section="AI Tools">
+      <h2 class="res-section-title scroll-reveal" data-delay="0">
+        <span class="res-section-dot"></span>AI Tools
+      </h2>
+      <div class="dev-grid" id="devGrid-ai">
+
+        <div class="dev-card scroll-reveal" data-delay="0" data-cat="AI Tools">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/claude.jpg" alt="claude" class="dev-card-logo">
+\            </div>
+            <span class="dev-badge badge-ai">AI Tools</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Claude AI</h3>
+            <p class="dev-card-desc"> Asisten AI yang dapat membantu pengguna dalam berbagai tugas, seperti menjawab pertanyaan, menulis, menganalisis informasi, dan membantu pemrograman.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://claude.ai" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="80" data-cat="AI Tools">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/cetjipiti.jpg" alt="cetjipiti" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-ai">AI Tools</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">ChatGPT</h3>
+            <p class="dev-card-desc">Asisten AI yang membantu pengguna dalam belajar, mencari informasi, menulis, dan menyelesaikan berbagai tugas melalui percakapan interaktif.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://chatgpt.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="160" data-cat="AI Tools">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/gemini.jpg" alt="gemini" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-ai">AI Tools</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Gemini</h3>
+            <p class="dev-card-desc">Asisten AI dan model bahasa multimodal dari google yang dirancang untuk memproses dan memahami berbagai jenis nformasi secara bersamaan, termasuk teks, audio, video, gambar, dan kode pemrograman.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://gemini.google.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="240" data-cat="AI Tools">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/flow.jpg" alt="flow" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-ai">AI Tools</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Flow</h3>
+            <p class="dev-card-desc">Platform pembuatan video berbasis AI dari google yang memungkinkan anda mengubah teks atau gambar menjadi klip sinematik.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://labs.google/fx/tools/flow" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="320" data-cat="AI Tools">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/journey.jpg" alt="journey" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-ai">AI Tools</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Midjourney</h3>
+            <p class="dev-card-desc">AI Image Generator terbaik untuk menciptakan aset visual kreatif, ilustrasi karakter, maupun kebutuhan grafis storyboard.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.midjourney.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ────── SECTION: LEARNING PLATFORM ────── -->
+    <div class="res-section" data-section="Learning">
+      <h2 class="res-section-title scroll-reveal" data-delay="0">
+        <span class="res-section-dot"></span>Learning Platforms
+      </h2>
+      <div class="dev-grid" id="devGrid-learning">
+
+        <div class="dev-card scroll-reveal" data-delay="0" data-cat="Learning">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/w3.jpg" alt="w3 skul" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-learning">Learning</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">W3Schools</h3>
+            <p class="dev-card-desc">Platform belajar pemrograman yang menyediakan tutorial, referensi, dan latihan interaktif untuk berbagai bahasa pemrograman dan teknologi web.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.w3schools.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="80" data-cat="Learning">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/dicoding.jpg" alt="dicoding" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-learning">Learning</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">Dicoding</h3>
+            <p class="dev-card-desc">Platform belajar teknologi yang menyediakan kelas online, latihan, dan sertifikasi untuk membantu pengguna mengembangkan keterampilan di bidang IT dan pengembangan perangkat lunak.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.dicoding.com" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="160" data-cat="Learning">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/myskill.jpg" alt="myskill" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-learning">Learning</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">MySkill</h3>
+            <p class="dev-card-desc">  Platform belajar dan pengembangan karier yang menyediakan kelas serta pelatihan untuk membantu pengguna meningkatkan keterampilan profesional dan kesiapan kerja.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://myskill.id" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="240" data-cat="Learning">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/special.jpg" alt="special" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-learning">Learning</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">SpesialSkill</h3>
+            <p class="dev-card-desc">Platform edukasi lokal yang menyediakan berbagai kelas dan bootcamp digital untuk membantu pengguna mempelajari keterampilan teknologi, membangun portofolio, dan meningkatkan kesiapan kerja.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://specialskill.myr.id/" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+
+        <div class="dev-card scroll-reveal" data-delay="320" data-cat="Learning">
+          <div class="dev-card-top">
+            <div class="dev-icon-wrap">
+              <img src="img/free.jpg" alt="free" class="dev-card-logo">
+            </div>
+            <span class="dev-badge badge-learning">Learning</span>
+          </div>
+          <div class="dev-card-body">
+            <h3 class="dev-card-title">freeCodeCamp</h3>
+            <p class="dev-card-desc">Platform belajar coding gratis yang menawarkan tutorial, interaktif, dan proyek praktis untuk mengembangkan keterampilan pemrograman dan teknologi.</p>
+          </div>
+          <div class="dev-card-footer">
+            <a href="https://www.freecodecamp.org" target="_blank" class="btn-dev-action">Open →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 symatika. All right reserved</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/resources.js"></script>
+</body>
+</html>

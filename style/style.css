@@ -1,0 +1,701 @@
+:root {
+  --bg-primary:    #0a0b14;
+  --bg-secondary:  #0f1123;
+  --bg-card:       #111327;
+  --bg-card-hover: #161932;
+
+  --accent-purple: #7c3aed;
+  --accent-violet: #9b5cf5;
+  --accent-blue:   #3b82f6;
+  --accent-cyan:   #06b6d4;
+
+  --text-primary:  #e8eaf6;
+  --text-secondary:#a0a8c8;
+  --text-muted:    #5a6080;
+
+  --border-subtle: rgba(124, 58, 237, 0.2);
+  --glow-purple:   rgba(124, 58, 237, 0.35);
+  --glow-white:    rgba(255, 255, 255, 0.08);
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-body:    'DM Sans', sans-serif;
+
+  --radius-card: 12px;
+  --transition:  0.3s ease;
+}
+
+/* ---------- 2. RESET & BASE ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+
+  /* Transisi: opacity + gerak ke atas, smooth */
+  transition:
+    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Kondisi SETELAH terlihat di viewport */
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- 4. NAVBAR ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(10, 11, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-icon {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;  
+  width: 32px;
+  height: 32px;
+  background: rgba(155,92,245,0.1);
+  border-radius: 6px;
+  box-shadow: 0 0 8px var(--glow-purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara Icon dan Teks */
+  padding: 8px 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary); /* Warna teks awal agak redup */
+  border-radius: 6px;
+  position: relative;
+  transition: all var(--transition);
+}
+
+/* Ukuran Icon Navigasi */
+.nav-icon {
+  font-size: 1.2rem;
+  transition: color var(--transition);
+}
+
+/* ──── EFEK HOVER & ACTIVE (Sesuai Gambar Contoh) ──── */
+
+/* Ketika menu di-hover atau sedang aktif/diklik */
+.nav-item:hover,
+.nav-item.active {
+  color: var(--accent-violet); /* Teks & Icon otomatis berubah jadi ungu bersamaan */
+  background: rgba(155, 92, 245, 0.08); /* Efek background highlight tipis */
+}
+
+/* Garis indikator tipis di bagian bawah menu yang aktif */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px; /* Pas menempel di border bawah navbar */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-violet);
+  box-shadow: 0 0 8px var(--accent-violet);
+}
+
+/* ---------- 5. TOMBOL (BUTTONS) ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent-purple);
+  color: #fff;
+  border-color: var(--accent-purple);
+}
+
+.btn-primary:hover {
+  background: var(--accent-violet);
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 20px var(--glow-purple), 0 4px 16px rgba(124,58,237,0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: rgba(232, 234, 246, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 14px var(--glow-white);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 9px 20px;
+  font-size: 0.82rem;
+  margin-top: 12px;
+}
+
+/* ---------- 6. HERO SECTION ---------- */
+.hero {
+  position: relative;
+  padding: 120px 60px 90px;
+  overflow: hidden;
+  display: flex;             
+  justify-content: center;   
+  align-items: center;       
+  min-height: 70vh;          
+}
+/* Grid background ala OS terminal */
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;          /* Sedikit dilebarkan biar teks deskripsinya pas */
+  z-index: 1;
+  display: flex;             /* Bikin flexbox di dalam kotak konten */
+  flex-direction: column;    /* Menyusun isinya dari atas ke bawah */
+  align-items: center;       /* MEMAKSA SEMUA ELEMEN MASUK KE TENGAH */
+  text-align: center;        /* Membuat semua teks rata tengah */
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.title-accent {
+  background: linear-gradient(135deg, #06b6d4 0%, #b882ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  letter-spacing: 0.04em;
+  /* Efek glow tipis pada teks judul */
+  filter: drop-shadow(0 0 25px rgba(184, 130, 255, 0.5))
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 7. SECTION LABELS & TITLES ---------- */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+}
+
+/* ---------- 8. FEATURES SECTION ---------- */
+.features {
+  padding: 80px 60px;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.features .section-title { margin-bottom: 50px; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── Feature Card ── */
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform     var(--transition),
+    box-shadow    var(--transition),
+    border-color  var(--transition),
+    background    var(--transition);
+}
+
+/* HOVER: terangkat + neon glow */
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+  border-color: rgba(124, 58, 237, 0.5);
+  box-shadow:
+    0 0 20px rgba(124,58,237,0.2),
+    0 8px 32px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+
+.icon-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.feature-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.feature-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all var(--transition);
+}
+
+.icon-neon-purple {
+  color: #b882ff;
+  border-color: rgba(184, 130, 255, 0.3);
+  box-shadow: 0 0 15px rgba(184, 130, 255, 0.2), inset 0 0 8px rgba(184,130,255,0.1);
+}
+
+.icon-neon-cyan {
+  color: #06b6d4;
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2), inset 0 0 8px rgba(6,182,212,0.1);
+}
+
+.feature-card:hover .icon-neon-purple {
+  background: rgba(184,130,255,0.15);
+  border-color: rgba(184, 130, 255, 0.6);
+  box-shadow: 0 0 25px rgba(184, 130, 255, 0.5), inset 0 0 10px rgba(184, 130, 255, 0.3);
+  filter: drop-shadow(0 0 5px #06b6d4);
+}
+
+
+/* ---------- 9. HOW IT WORKS SECTION ---------- */
+.how-it-works {
+  padding: 80px 60px;
+  background: #0d0f1f;
+  text-align: center;
+}
+
+.how-it-works .section-label { margin-bottom: 50px; }
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.step-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.12);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-purple);
+  margin-bottom: 20px;
+  transition: all var(--transition);
+}
+
+.step:hover .step-circle {
+  background: rgba(124,58,237,0.25);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 16px var(--glow-purple);
+}
+
+/* Garis putus-putus antar step */
+.step-connector {
+  position: absolute;
+  top: 32px;
+  left: calc(50% + 32px);
+  width: calc(100% - 32px);
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--text-muted) 0, var(--text-muted) 5px,
+    transparent 5px, transparent 10px
+  );
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.step-circle i {
+  font-size: 1.5rem;
+  transition: all var(--transition);
+}
+
+.circle-green { 
+  background: rgba(16,185,129,0.15); 
+  border-color: rgba(16,185,129,0.3); 
+  color: #10b981; 
+}
+
+.circle-blue { 
+  background: rgba(59,130,246,0.15); 
+  border-color: rgba(59,130,246,0.3); 
+  color: #3b82f6; 
+}
+
+.circle-pink { 
+  background: rgba(236,72,153,0.15); 
+  border-color: rgba(236,72,153,0.3); 
+  color: #ec4899; 
+}
+
+.step:hover .circle-green {
+  background: rgba(16,185,129,0.15);
+  border-color: rgba(16,185,129,0.6);
+  box-shadow: 0 0 20px rgba(16,185,129,0.4), inset 0 0 10px rgba(16,185,129,0.2);
+}
+.step:hover .circle-green i {
+  filter: drop-shadow(0 0 6px rgba(16,185,129,0.6));
+  transform: scale(1.1);
+}
+
+.step:hover .circle-blue {
+  background: rgba(59,130,246,0.15);
+  border-color: rgba(59,130,246,0.6);
+  box-shadow: 0 0 20px rgba(59,130,246,0.4), inset 0 0 10px rgba(59,130,246,0.2);
+}
+.step:hover .circle-blue i {
+  filter: drop-shadow(0 0 6px rgba(59,130,246,0.6));
+  transform: scale(1.1);
+}
+
+.step:hover .circle-pink {
+  background: rgba(236,72,153,0.15);
+  border-color: rgba(236,72,153,0.6);
+  box-shadow: 0 0 20px rgba(236,72,153,0.4), inset 0 0 10px rgba(236,72,153,0.2);
+}
+.step:hover .circle-pink i {
+  filter: drop-shadow(0 0 6px rgba(236,72,153,0.6));
+  transform: scale(1.1);  
+}
+
+/* ---------- 10. LEARNING MATERIALS PREVIEW ---------- */
+.preview {
+  padding: 80px 60px;
+  background: var(--bg-primary);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.preview-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.view-all-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-purple);
+  letter-spacing: 0.04em;
+  transition: all var(--transition);
+  white-space: nowrap;
+  padding: 6px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+.view-all-link:hover {
+  color: var(--accent-violet);
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 12px var(--glow-purple);
+  transform: translateX(4px);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* ── Preview Card ── */
+.preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform     var(--transition),
+    box-shadow    var(--transition),
+    border-color  var(--transition);
+}
+
+/* HOVER: terangkat + neon glow */
+.preview-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(124,58,237,0.5);
+  box-shadow:
+    0 0 24px rgba(124,58,237,0.18),
+    0 12px 40px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.preview-card-thumb {
+  width: 100%;
+  height: 140px; /* Menentukan tinggi area gambar */
+  position: relative;
+  overflow: hidden;
+  background: #0f111a; /* Warna cadangan kalau gambar gagal tampil */
+  /* Agar sudut atas gambar mengikuti lengkungan card bawaan kodinganmu */
+  border-top-left-radius: var(--radius-card);
+  border-top-right-radius: var(--radius-card);
+}
+
+.preview-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Kunci utama: Menjaga rasio gambar biar gak penyok atau gepeng */
+  opacity: 0.75; /* Dibuat agak redup pas dengan vibe dark mode Symatika */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transisi efek hover */
+}
+
+/* Efek interaktif pas Card di-hover */
+.preview-card:hover .preview-banner-img {
+  transform: scale(1.06); /* Efek gambar sedikit membesar/zooming halus */
+  opacity: 0.95; /* Gambar otomatis menjadi lebih menyala terang */
+}
+
+/* Efek shadow gradasi tipis di bagian bawah gambar agar menyatu mulus ke arah teks */
+.preview-card-thumb::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: linear-gradient(to top, var(--bg-card), transparent);
+  pointer-events: none;
+}
+
+.preview-card-body { padding: 18px 20px 22px; }
+
+.preview-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.preview-card-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-sem1 {
+  background: rgba(124,58,237,0.2);
+  color: var(--accent-violet);
+  border: 1px solid rgba(124,58,237,0.3);
+}
+
+.badge-sem2 {
+  background: rgba(59,130,246,0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,0.25);
+}
+
+.preview-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---------- 11. FOOTER CTA ---------- */
+.footer-cta {
+  padding: 70px 60px 20px;
+  text-align: center;
+}
+
+.footer-cta-text {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.footer-divider {
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+  margin: 0 auto;
+}
+
+/* ---------- 12. FOOTER ---------- */
+.footer {
+  background: #b7b1e7;
+  color: #444;
+  text-align: center;
+  padding: 24px;
+  font-size: 0.82rem;
+  margin-top: 50px;
+}
+
+/* ---------- 13. SCROLLBAR & SELECTION ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 3px; }
+::selection { background: var(--accent-purple); color: #fff; }

@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materials – Symatika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/materials.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon"><img src="img/logo-symatika.png" alt="Logo Symatika"></span>
+      <span class="brand-name">Symatika</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html" class="nav-item active">
+          <i class='bx bx-home-alt-2 nav-icon'></i>Home
+        </a>
+      </li>
+      <li>
+        <a href="materials.html" class="nav-item">
+          <i class='bx bx-book-open nav-icon'></i>Materials
+        </a>
+      </li>
+      <li>
+        <a href="resources.html" class="nav-item">
+          <i class='bx bx-folder nav-icon'></i>Resources
+        </a>
+      </li>
+      <li>
+        <a href="behind.html" class="nav-item">
+          <i class='bx bx-info-circle nav-icon'></i>Sysinfo
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header scroll-reveal" data-delay="0">
+    <span class="page-header-icon icon-neon-purple">
+        <i class='bx bx-book-open'></i>
+    </span>
+    <div>
+      <h1 class="page-title">Materials</h1>
+      <p class="page-desc">
+        Akses seluruh materi kuliah Informatika yang disusun rapi per semester.<br />
+        Kamu bisa unduh file utama atau lihat folder lengkapnya langsung di google drive.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========== SEMESTER FILTER TABS ========== -->
+  <div class="semester-tabs scroll-reveal" data-delay="80">
+    <button class="sem-btn active" data-sem="1">Semester 1</button>
+    <button class="sem-btn" data-sem="2">Semester 2</button>
+    <button class="sem-btn" data-sem="3">Semester 3</button>
+    <button class="sem-btn" data-sem="4">Semester 4</button>
+    <button class="sem-btn" data-sem="5">Semester 5</button>
+    <button class="sem-btn" data-sem="6">Semester 6</button>
+    <button class="sem-btn" onclick="filterSemester('all')">All Semester</button>
+  </div>
+
+  <!-- ========== SEARCH & SORT BAR ========== -->
+  <div class="search-bar-wrap scroll-reveal" data-delay="140">
+    <div class="search-input-wrap">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search Subject...." />
+    </div>
+
+    <div class="filter-group-wrap" style="display: flex; gap: 12px;">
+      <div class="sort-wrap">
+        <i class='bx bx-filter-alt sort-neon-icon' style='color: #ff007f; filter: drop-shadow(0 0 5px rgba(255, 0, 127, 0.8));'></i>
+        <select id="typeSelect" class="sort-select">
+          <option value="all">All Types</option>
+          <option value="wajib">Wajib</option>
+          <option value="umum">Umum</option> 
+        </select>
+      </div>
+
+      <div class="sort-wrap">
+        <i class='bx bx-sort-alt-2 sort-neon-icon'></i>
+        <select id="sortSelect" class="sort-select">
+          <option value="az">Sort A–Z</option>
+          <option value="za">Sort Z–A</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NOTES BOX ========== -->
+  <div class="notes-box scroll-reveal" data-delay="180">
+    <div class="notes-header">
+      <i class='bx bx-error-alt notes-neon-icon'></i>
+      <span class="notes-title">NOTES</span>
+    </div>
+    <p class="notes-text">
+      Arsip materi di platform ini disesuaikan dengan keterbatasan berkas yang dibagikan oleh
+      dosen selama perkuliahan. Terdapat beberapa mata kuliah yang menggunakan media buku
+      fisik khusus/cetak, sehingga tidak tersedia dalam bentuk PDF disini.<br />
+      Terimakasih atas pengertiannya !!
+    </p>
+  </div>
+
+  <!-- ========== MAIN CONTENT AREA ========== -->
+  <main class="materials-main">
+
+    <div class="subjects-label" id="subjectsLabel">All Subjects (Semester 1)</div>
+
+    <div class="mat-grid" id="matGrid">
+
+      <!-- ══════════════ SEMESTER 1 ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="algoprog" data-sem="1" data-name="Algoritma & Pemrograman">
+        <div class="mat-card-top">
+          <img src="img/alpro-img.jpg" alt="algoritma & pemrograman" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Algoritma &amp; Pemrograman</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Dasar algoritma, flowchart dan pemrograman dasar menggunakan C++</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/162qA8ZZ_7xZqxHVVOxWa98-SVc0LNTRb" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1KyfOD5ZgHl-rDy5MHyT1VQTS_2hKO1Sm" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/13OYMnp6zK49OD8gBzs4w4WnXOmUn8xBS" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1AVTzUMqGD7y5CaSs0QSxnrUX6XF9Ri6S" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="bk" data-sem="1" data-name="Berpikir Komputasional">
+        <div class="mat-card-top">
+          <img src="img/bk-img.jpg" alt="berpikir komputasional" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Berpikir Komputasional</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Konsep pemecahan masalah dengan metode sistematis dan logis menyerupai cara kerja seorang ilmuwan komputer</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1K6dAV37Cf4WnfW1aTyMGNLsxOw9Y0nVv" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1RZifkSb02ZwXSz_nvxlWz-LVZmPFlvZ2" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1JdrfkHqZx5wofaJujqbndiAkRVIJ0ULt" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1wSBiqTl4HmuozP1GFWdy1pYBTuUUA8nk" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="kalkulus" data-sem="1" data-name="Kalkulus Dasar">
+        <div class="mat-card-top">
+          <img src="img/kadas-img.jpg" alt="kalkulus dasar" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Kalkulus Dasar</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari turunan, integral, dan konsep kalkulus dasar</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1LzE_Uuii52j7222YUz34T4j3ntbOyj0u" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1ASUkKiO-lKJ6jXzwPydPzFLXIflVYgkB" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1rff50-Pqy_t41GbEz2Oar7mcu7w-jsfK" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1kb1AyrU5pE1VwKACoIxVhggMTVGEg7kF" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="logfor" data-sem="1" data-name="Logika Informatika">
+        <div class="mat-card-top">
+          <img src="img/logfor-img.jpg" alt="logika informatika" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Logika Informatika</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Konsep logika yang digunakan dalam pemrograman dan komputasi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/19AOfu_5vBwnE2yP20iqXO37bwfBJXK-s" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1soHCCh-ihDK2QnswCE3yzaG-FTO3Xrx1" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1ceyw3UBPNaiL577jPWYJkA0Psq8ILljR" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1Swjc-1qB7VD28SMkBdVuyjO0bLrZ2Sqk" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="indo" data-sem="1" data-name="Bahasa Indonesia">
+        <div class="mat-card-top">
+          <img src="img/indo-img.jpg" alt="bahasa indonesia" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Bahasa Indonesia</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Pelajari tata bahasa, membaca, dan menulis dengan baik</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1F02Is3VaAHHQjk9OvnvqkWIny2yfqB8B" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1_RJAVlt07GA1uFbJd9akHyWCyfZoJzN8" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1Ae4CbUC7A7cDw8MwWoqJf2xzcdENQi7v" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1dmsw9vwSZvP2bYRgC4o_JXVSC2QUfnP8" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="400" id="english" data-sem="1" data-name="Bahasa Inggris">
+        <div class="mat-card-top">
+          <img src="img/english-img.jpg" alt="bahasa inggris" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Bahasa Inggris</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Belajar kosakata, tata bahasa, dan percakapan sehari - hari</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/16H5pETl4O8cdGU24YFhPsr5s2P3aVCWB" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1RyqJV2RO6PWTq2LnNy-WS4eGYa_ACX7l" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1n2XHfHhSrvpxHnIS9whl0hTXAfbN6yhh" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1n3b7YdlI6l5_hI0Q8NktkLLyEa8A4poa" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="480" id="pancasila" data-sem="1" data-name="Pancasila">
+        <div class="mat-card-top">
+          <img src="img/pancasila-img.jpg" alt="pancasila" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pancasila</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Kenali nilai kebangsaan, demokrasi, dan persatuan Indonesia</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1edZyMoj3Wj8S__lkvnnXZMzVulJKO_k7" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1a-iDYmKtzJUGFsuR9goE4wM5CVKppUOA" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1qIQa49xEKx1_sCQhsPDUJprM7ZcJ265z" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1LrFKAUijbtW_IOSeSSTF1DSjoCS37Mvc" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="560" id="kwu" data-sem="1" data-name="Kewirausahaan">
+        <div class="mat-card-top">
+          <img src="img/kwu-img.jpg" alt="kewirausahaan" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Kewirausahaan</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Belajar menciptakan peluang dan mengembangkan usaha</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1sDCb4nEoMDRLL31vqYsyFxZ4_Vn-hiGM" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1UzGJXBg7u9IZM3BIHjc5lKMyt3fgT9Hk" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1X4kwv428vJKeiBBUi89-dYh8PJrYeeX8" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1TZ4kWfWjxf503N666UUex3NrRT_RC6KM" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════ SEMESTER 2 ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="basisdata" data-sem="2" data-name="Basis Data">
+        <div class="mat-card-top">
+          <img src="img/basdat-img.jpg" alt="basis data" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Basis Data</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari Konsep basis data, ERD, normalisasi, SQL, dan manajemen data</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1St7NoFMERZlHjQ8Hf7kcQWs5WRZICgJf" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1ZjWyFlITDsklerpo-chwjDnVNbbRb51e" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1m14-tSxxl9UQfZv1PJ1TOdslczEV3i75" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1b6S1kwrspHWEmMzn5a1nouom-DTscLaQ" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1aeXQxcHNHr5by-L8y46MXyfUGYNp1rIX" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="sdt" data-sem="2" data-name="Struktur Data">
+        <div class="mat-card-top">
+          <img src="img/sdt-img.jpg" alt="struktur data" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Struktur Data</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari konsep Array, stack, queue, tree, graph, dan algoritma pencarian</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1VIPDZZ62W1N8szPiQPnEKwx0KovdRnaX" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1vAgOkrmPg8OfuEx6SF0km-yanb-CxsWX" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1XZWt21M6IPY26sHU_prmXtob_NXsTtvS" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1Uvn6_NoU51vyFOkkPXSvBrb0jid7pbx0" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/19mLXNH6M-1wP6BdIpn2NEI--eRUJQLvK" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="kalku" data-sem="2" data-name="Kalkulus Lanjut">
+        <div class="mat-card-top">
+          <img src="img/kalku-img.jpg" alt="kalkulus lanjut" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Kalkulus Lanjut</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami konsep kalkulus tingkat lanjut dan aplikasinya</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1u_3QTx4hmZyE8SwpLJ913N0t2xmE4_Ww" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1bBcUnvyOU8IbDgJY-AfoiM_mYThO5ncX" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1UzeVE_mi4pKoX46zO-SQo-1r45QziJdy" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1QnQvQMh23NwSf-l6-rYG_k-KVO5OWCbX" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="matdis" data-sem="2" data-name="Matematika Diskrit">
+        <div class="mat-card-top">
+          <img src="img/matdis-img.jpg" alt="matematika diskrit" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Matematika Diskrit</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari logika, himpunan, relasi, dan graf</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1FpWr6HAGTKYb7vvSYOvMsZuRcGu7b7KX" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1hSxJvi3L_A8Idxh7wY6m7_dMTmgghQa6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/14WLRhdswP4hdrTIynecaOuh2kuzNCUa2" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1oguj0-C8J8BRXYfsOgmarjp805k9uipS" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="agama" data-sem="2" data-name="Agama">
+        <div class="mat-card-top">
+          <img src="img/agama-img.jpg" alt="agama" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Agama</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Pelajari nilai agama, akhlak, dan kehidupan sehari-hari</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1Bz88Hfr_npfWnXo_iUAwi9e_6ODMsy8G" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1EiImoJ1oY3Vdu0oo-yH7xGqiXeGhknB8" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1VimpNQZU4rWFJDEJduYOsI4SzAI1JqF_" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1pSmwsee5luqOb6s4QuGjuJHFdU0tj322" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="400" id="kwn" data-sem="2" data-name="Kewarganegaraan">
+        <div class="mat-card-top">
+          <img src="img/kwn-img.jpg" alt="kewarganegaraan" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Kewarganegaraan</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Memahami demokrasi, hukum, dan kehidupan berbangsa</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1Yv9LG-xa1ebUzvVQ_WJRVK7hnhXgG-AO" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1YohiWLFUqnzHK6sa_BNz1TtNPpF8t0d6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/12aarV_nsjdVPdEzfCxS-V5ByuNga_AlK" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1Fbxpn3Yr5QKfI60hUM-3hg-0ykTyKCWE" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="480" id="lai" data-sem="2" data-name="Literasi Artificial Intelligence">
+        <div class="mat-card-top">
+          <img src="img/lai-img.jpg" alt="literasi ai" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Literasi Artificial Intelligence</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami konsep, manfaat, dan etika kecerdasan buatan</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1Gulc8aOPr_IjOVHvWUAb6WVCEhJWTI_X" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1VFVpTDhmA_1NnfeakYf1U8bCdJZR-5Z6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1cVikBZv8WPBRyMObuo5CSZ9Yi0xqI-QF" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1a3SRAa3CpCxBqNd79msdp-Yt4cVDqEvx" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="560" id="sisdig" data-sem="2" data-name="Sistem Digital">
+        <div class="mat-card-top">
+          <img src="img/sisdig-img.jpg" alt="sistem digital" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Sistem Digital</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari gerbang logika, biner. dan rangkaian digital</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1zhuMc-2y4CXGOqjJSt9wmxEIwH_dlVBZ" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1f4F2YxmGv6jNZlw_37JS3mtw3VEJRjpk" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1Rb8moMW9k0Qd0WHmFrajK8QdC14tKam9" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1J5m09MJkBpNdnzLAecAHsNcwCRVbyXq7" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════ SEMESTER 3 ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="aljabar" data-sem="3" data-name="Aljabar Linear & Matriks">
+        <div class="mat-card-top">
+          <img src="img/aljabar-img.jpg" alt="aljabar linear & matriks" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Aljabar Linear & Matriks</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Eksplorasi aljabar linear untuk analisis data dan AI</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1iTzYptjTqtczStCjq_uduCRVHETjEPB-" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1H6fhh-KVuMxO9MCVdtpZDl1ghrLBl7h4" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/12fe8zfUncIDEiWO5y7VvJw94wYTfO8Fg" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1fuIH2Jjmp1Vl-PBalIk159E_wi7IzXP1" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="pbo" data-sem="3" data-name="Pemrograman Berorientasi Objek">
+        <div class="mat-card-top">
+          <img src="img/objek-img.jpg" alt="pemrograman berorientasi objek" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pemrograman Berorientasi Objek</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami inheritance, polymorphism, dan encapsulation</p>
+          <div class="mat-card-footer">
+            <span class="mat-files">7 files</span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1ZVlR42-r3aQfGdkvL9SbPkOTisuQJUQl" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1uMs-K4pFL2zSYp2JQAVBn7g9lpGn71La" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1_edZPMVDpabRowWnvJpPZu0mp6_QJa8J" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1dehHlBYg5PkeyrJ0VzgrYP-xgZb6-Tgv" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1n4liwESwIi9XyVYSkyU0oBuzUJjlPgV4" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="oda" data-sem="3" data-name="Organisasi dan Arsitektur Komputer">
+        <div class="mat-card-top">
+          <img src="img/arsitek-img.jpg" alt="organisasi dan arsitektur komputer" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Organisasi dan Arsitektur Komputer</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami struktur dan operasi komputer dari tingkat hardware hingga software</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1jE-PLy1RNUCOGLvyfUeBSjLGJh0Z3HEa" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/19WnyxkS-rInCaKezQs4H06OO-e4DfXiH" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1bBLeSZHtghZWw5nO_gVgpTohBSJJORxV" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1wrDsLb_7Xt7Uc87Hu-dsmgzG6H4qF-7j" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="ps" data-sem="3" data-name="Pemrograman Sistem">
+        <div class="mat-card-top">
+          <img src="img/sistem-img.jpg" alt="pemrograman sistem" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pemrograman Sistem</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari cara kerja sistem operasi dan perangkat lunak sistem</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1YbCB_TAitcuN1pFYdyj1nrUz9X1ooyWQ" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1UZbQjH3vpSZG9scOEghNBzcmRdAawdok" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1Z3hiRLgu1Yp1K13B9uUKJheuhf6NDQmw" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1RYcjL2xNeYSaOdCzEshUA-SqgJeJKr-D" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="statiska" data-sem="3" data-name="Probabilitas Statiska">
+        <div class="mat-card-top">
+          <img src="img/statiska-img.jpg" alt="probabilitas statistika" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Probabilitas Statistika</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Dasar statiska untuk pengambilan keputusan berbasis data</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1K9v57LT9kwP0SH3G3MA9Ing10KjQ8Iwc" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1SbF6h7K9FYeRclBHY0hbfxb3nZ71kRm6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1xbglTm1kHxKjC-7FWNmxm4a6ZLnhLyms" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1LTGMYyLfhGz6S-bolFJMGzoCDgRkOZHU" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="400" id="rpl" data-sem="3" data-name="Rekayasa Perangkat Lunak">
+        <div class="mat-card-top">
+          <img src="img/rpl-img.jpg" alt="rekayasa perangkat lunak" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Rekayasa Perangkat Lunak</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Dasar pengembangan software dari perencanaan hingga implementasi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1BIlr71JtgCe0RZTZ9mgDy9uca1LhzEV3" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1eb22oz1ock2FP28_jJslm1Oze_OV09xq" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1GDZ3lIBdAY-hseBEhZ2zDhfgSpVY6KEi" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1ntmFr8fx5vIOIqt1RiLmh0A_c4Bnb9g7" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1kmtGyUh3uys0IlfZFgx99gIjNHy4XiHz" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="480" id="os" data-sem="3" data-name="Sistem Operasi">
+        <div class="mat-card-top">
+          <img src="img/siop-img.jpg" alt="sistem operasi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Sistem Operasi</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Dasar sistem operasi untuk mendukung komputasi modern</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1UWSf6lh3MWwcw7T4qtbmMWALxDE43sA_" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1edSU05e6HOYuzQwQhoDOLKS9kzd8XqKE" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1Onq8Hy4Zb9UyMh3ghzIfXzIQQQRaRJZd" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1s22sSOnwJkT98fT164k73HZ7v0Z4qnBQ" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1tdxpumxYLRzU6JbnkZEShoeswhu84SZl" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════ SEMESTER 4 ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="numerik" data-sem="4" data-name="Analisis Numerik">
+        <div class="mat-card-top">
+          <img src="img/num-img.jpg" alt="analisis numerik" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Analisis Numerik</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami pendekatan komputasi untuk perhitungan kompleks</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1C74SBJ1KAbU8pcWPntBG4nXgbzBT1tZO" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="#https://drive.google.com/drive/folders/19nTedbIfpzz_OkPDXOSqD2P_5MNZKdRS" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1cM68FMj45FeO5V33vb8cpiOacWE70zqY" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1rd7UY9aYC1Utw6O7yF9hqKa_Xp0a6rj4" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="jarkom" data-sem="4" data-name="Jaringan Komputer">
+        <div class="mat-card-top">
+          <img src="img/jarkom-img.jpg" alt="jaringan komputer" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Jaringan Komputer</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Eksplorasi jaringan lokal, internet, dan infrastruktur jaringan</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1jP0Zwyvp1IiXclgiRvsDC-Qld0OVAKzQ" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1zfGU0WDArTtNEQPJ0-xgFz0dvIicky5J" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1iqylS2aH_KBIcDwW5UIvSA57SbKEs3K6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1L7UB-0kJUekZSJ6clK3pc3yLglA_Hbzm" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1zJLMcVIHZkle7LXllwDr8XuFWbFp0Jqi" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="pds" data-sem="4" data-name="Pemodelan dan Simulasi">
+        <div class="mat-card-top">
+          <img src="img/model-img.jpg" alt="pemodelan dan simulasi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pemodelan dan Simulasi</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Eksplorasi teknik pemodelan dan simulasi berbasis komputer</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1jfejseBQE5efgi5Bdks8FramA1j8O6CQ" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1dEoy6t52ZGUHv3RTbY0DSnRyxazxjSJ6" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1TzlPqbmRplaqwg7FipnK_q0WhixYEN_P" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1Jk2gTLBTUuUAykY_5U5fhOe0ptdQuXzp" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="web" data-sem="4" data-name="Pemrograman Web">
+        <div class="mat-card-top">
+          <img src="img/web-img.jpg" alt="pemrograman web" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pemrograman Web</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Membangun website yang responsif dan mudah digunakan</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1n3OAAyDcMI2lhrrwEp-mlbVU28rNzQGh" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1hqBefhlrTNmiSO0pLLIez6oEx9R62Gyp" target="_blank" class="dropdown-item">📋 Modul</a>
+                <a href="https://drive.google.com/drive/folders/1euubRFrpZlti7DwBGxBNyOujhFAjmyAt" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1brnMxth8x0_B5dqwPBDWdBM9_0hHsc6a" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/19fZL9YoloEZNBUHB90358UsGkoVFY0ba" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="korupsi" data-sem="4" data-name="Pendidikan Anti Korupsi">
+        <div class="mat-card-top">
+          <img src="img/korupsi-img.jpg" alt="pendidikan anti korupsi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pendidikan Anti Korupsi</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Pelajari integritas, kejujuran, dan budaya anti korupsi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1xjCKh_U4oIF4dM7YJzPwKYNai4zmJa0U" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1q2FLR-LH0Vh6vNzbLlgWn0fsTGW-zM83" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1IsxujfUVsArO8586Z1L7fNPKY88uusL6" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1_y_8oxoFXzteAGA3vCaRaG98A0P1D7Km" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="400" id="aplikasi" data-sem="4" data-name="Pengembangan Aplikasi berbasis Platform">
+        <div class="mat-card-top">
+          <img src="img/aplikasi-img.jpg" alt="pengembangan aplikasi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pengembangan Aplikasi berbasis Platform</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Mempelajari pengembangan aplikasi untuk berbagai platform</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/12U2vPrO7NvbTVK5xUxLbDAw0ZRVnzSwD" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1ONLkZnDI4ZBnEktUPSQrgQjrBboFipK1" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1LTpUKZXwWOZbOUeExTm3cSQE1JCzovRE" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1TTALISBOhq5I-9pg6KlAtrOuLvMRdD_k" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="480" id="sains" data-sem="4" data-name="Sains Data">
+        <div class="mat-card-top">
+          <img src="img/sains-img.jpg" alt="sains data" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Sains Data</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari pengolahan, analisis, dan visualisasi data</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1SJs1oY_yiWLZyvKCooQnFMsQgoxLbQmo" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1nGZR8rpKu_sMmNjqX0sB3P6_e_OSaF8v#" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1WoTRaVV71R-7y-f25IArkWdf6812lX2g" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1D7VImuTCpBivDte8MuwZNLkN6C1U165m" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="560" id="si" data-sem="4" data-name="Sistem Informasi">
+        <div class="mat-card-top">
+          <img src="img/si-img.jpg" alt="sistem informasi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Sistem Informasi</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari cara mengolah data menjadi informasi yang berguna</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1urkWT4niJrOl1s3se7pjHWgvM4cHEotU" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1SIhH8dQAZOR6I3rGF629k0XeHQ_Yk8BF" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1c380rdyd5rjy6gl-EcPnEClDCeksJe4B" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1jOBrlISccxjMEdMUTVls1v-FK0vlPguu" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="640" id="str" data-sem="4" data-name="Strategi Algoritma">
+        <div class="mat-card-top">
+          <img src="img/str-img.jpg" alt="strategi algoritma" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Strategi Algoritma</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Eksplorasi teknik algoritma untuk pemrograman dan komputasi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/11HLb_Yd1APHLs2c9deSc8ysPbG62p9ld" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1TABwp9mWvC2ePHN8X7RyxG8Y4k4LofYg" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/14YAYTg3MYF57lX5Or_0x8NW1tqTZLyt2" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1TywYZfc4yyQCJf8Lipn5jCrqf8J952sa" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════ SEMESTER 5 ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="eprof" data-sem="5" data-name="Etika Profesi">
+        <div class="mat-card-top">
+          <img src="img/eprof-img.jpg" alt="etika profesi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Etika Profesi</h3>
+          <span class="mat-badge badge-wajib">Umum</span>
+          <p class="mat-card-desc">Pelajari etika, integritas, dan profesionalisme dalam kerja</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1BcSFBHjgHSP9pCzqhqLGTF7MG43qt5DW?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1xLkJOLDJkq_ybcH7ylZCXEDrTxs718sm?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1WilE6zEt2xb4c47S-1a7K549Ut3QTmA7?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1y0_teGgD1WFgkahQLm0_x7ow0k_uYnXo?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="ai" data-sem="5" data-name="Inteligensi Artificial">
+        <div class="mat-card-top">
+          <img src="img/lai-img.jpg" alt="inteligensi artificial" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Inteligensi Artificial</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari dasar machine learning dan sistem cerdas</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1Hk4MmFDKnmSd8v9VDqQaLHOsfnDcAnxN?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/167f1_vnSFswW7HUPWQk3qNTVXXQrWQL-?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1gSwRB6Ub4voa87htaYAo0vl9GzCOXvoP?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1RuxhKo7K4Bb2WUOIYw478BWGUZzwFFnh?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="makom" data-sem="5" data-name="Interaksi Manusia-Komputer">
+        <div class="mat-card-top">
+          <img src="img/human-img.jpg" alt="Interaksi Manusia-Komputer" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Interaksi Manusia-Komputer</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami ineraksi antara pengguna dan sistem komputer</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1caRvWtFLRHAFoR8quVoVxQeagmLJAXpp?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1O7FKjDskKwjt1yXVkWKjrOJzrUn1yRu2?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1VX1ZeXpXifMj4FYtj4aRSMKOyDlPPBA-?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1QhsLGdO-bFR9AcvRShLEj45L4F-7nfCA?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="security" data-sem="5" data-name="Keamanan Informasi">
+        <div class="mat-card-top">
+          <img src="img/security-img.jpg" alt="Keamanan Informasi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Keamanan Informasi</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Menjaga kerahasiaan, integritas, dan ketersediaan informasi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/17kjHXJW2381MkxANoDbAvf1Iyy8DHcIt?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1raV8tPt4u_gYYjt72oG5T3U1lbsdMLAU?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/18oJYpCHsjmOJRgI6BxREc2S62oMLUfZe?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1uG5EPyaAMEHvVruKDoFQrzDQCcgW6_lX?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="cloud" data-sem="5" data-name="Komputasi Awan">
+        <div class="mat-card-top">
+          <img src="img/cloud-img.jpg" alt="Komputasi Awan" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Komputasi Awan</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Memahami teknologi cloud untuk aplikasi dan data</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/13FBtlJlRb5yt4-ye44nUFSq8NwwyImtw?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1o6Bjw720vE21-twPktGELnnIUVNp2KD9?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1XME4DML3KmXbDjnEiDla45jMhXodkDLe?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1kml6PHW3Ucty2MM_2aI5YoQUPU-uQD4H?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="400" id="paralel" data-sem="5" data-name="Komputasi Paralel dan Terdistribusi">
+        <div class="mat-card-top">
+          <img src="img/paralel-img.jpg" alt="Komputasi Paralel dan Terdistribusi" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Komputasi Paralel dan Terdistribusi</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari pemrosesan data dengan banyak proses dan komputer</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1k9SZbjqVQ2XRT9ReQADYtmfIL6iTeME_?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/10KauV3ldFWV3p7dvrCjXKWmJymlFX9D2?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/18DC45aygj8-IwXkRdFOlG5ygrTMzEFe2?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1T-I4D56eg5WkV_p083tNTBOFtV49fjuI?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="480" id="nguji" data-sem="5" data-name="Pengujian dan Implementasi Sistem">
+        <div class="mat-card-top">
+          <img src="img/nguji-img.jpg" alt="Pengujian dan Implementasi Sistem" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pengujian dan Implementasi Sistem</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari proses pengujian dan implementasi sistem perangkat lunak</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1TkE6zhB4VwxrG_zarvsTDJK9xU-6hjCj?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1DXBGqY1TR70UHgU4LZAeOX3Q7BhG6OlV?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1r87JlIpCwXh01P9YL5xOTacsghISL53g?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1PXDrBx4cytNDMk9a_sLJsIF27cb4B6Rf?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="560" id="otomata" data-sem="5" data-name="Teori bahasa dan Otomata">
+        <div class="mat-card-top">
+          <img src="img/otomata-img.jpg" alt="Teori bahasa dan Otomata" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Teori bahasa dan Otomata</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Pelajari bahasa formal dan model komputasi</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1OIsC8DenBDnpgoBOegJS8lZttC8zbXEI?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/15z1jXSZVBM3Jh_uqR6smB9GGY0gI3aYg?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/12cmEXhRo27G0Ek-0cWgz_24ongdVztQ8?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/195-eq9KBYbDAZ9l4ailcc2qD4toDaaUq?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════ SEMESTER 6 (Wajib) ══════════════ -->
+
+      <div class="mat-card scroll-reveal" data-delay="0" id="metpen" data-sem="6" data-name="Metodologi Penelitian">
+        <div class="mat-card-top">
+          <img src="img/metpen-img.jpg" alt="Metodologi Penelitian" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Metodologi Penelitian</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Penulisan ilmiah, metodologi riset, dan teknik analisis data penelitian</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1qJXFpH41t98mmw_2XvF32k2SquarekliDEjv6t?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/13Duf1sZCg7tBoob_G9SDcnrtq6ygnxNj?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1YQJkzh-9ByqgLKxbRGT1kPJ8bXrzBauX?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1_U2dgur-gccX5HUajTodgC_bgmohHilZ?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="80" id="iot" data-sem="6" data-name="Internet of Things">
+        <div class="mat-card-top">
+          <img src="img/iot-img.jpg" alt="Internet of Things" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Internet of Things</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Sensor, aktuator, protokol IoT, dan platform embedded systems</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1GNTZJ5vAOXmGxtWBTLaefel1ZFgUFS7W?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1HQ9O0jco66EmDXHxfju07YJM8VMbPw2a?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1t6hxGsR99XySO1hurIp0aVOLgXC6quZ8?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/17q3zCXDk6-3tJgVOH08RpUVAKbNvjU3w?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="160" id="grafika" data-sem="6" data-name="Grafika Komputer">
+        <div class="mat-card-top">
+          <img src="img/alpro-img.jpg" alt="Grafika Komputer" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Grafika Komputer</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Rendering, transformasi geometri, pipeline grafis, dan OpenGL dasar</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1CCEcIZhdbG7ipsN66O4_zz4Ys-5x9yeq?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1Y9fWXXW-5pjY2YcH-q_-3IbSkNQPjz69?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/15rFf3U3CelrvQ_1rpB0i5ndc-FGjNBwB?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/164gDRKJynUSFXhPthFPx8ywsC79qilg7?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="240" id="ml" data-sem="6" data-name="Pembelajaran Mesin">
+        <div class="mat-card-top">
+          <img src="img/ml-img.jpg" alt="Pembelajaran Mesin" class="mat-card-img">
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Pembelajaran Mesin</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Supervised, unsupervised learning, neural network, dan evaluasi model</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1NNhawLaJRbuWLwNDp5BVSnr6VEoayoRW?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1HvR2qe9_Tpv0TCoFqgHDeU3j7R7VMAKC?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1FoQfTPBzenlJe9CVvoW-ng5oPuFD_1mJ?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1TQsFQ6XKkqnGq-Gf7bWgblnERZ9tIK3x?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card scroll-reveal" data-delay="320" id="mppl" data-sem="6" data-name="Manajemen Proyek Perangkat Lunak">
+        <div class="mat-card-top">
+          <img src="img/mppl-img.jpg" alt="Manajemen Proyek Perangkat Lunak" class="mat-card-img">  
+        </div>
+        <div class="mat-card-body">
+          <h3 class="mat-card-title">Manajemen Proyek Perangkat Lunak</h3>
+          <span class="mat-badge badge-wajib">Wajib</span>
+          <p class="mat-card-desc">Perencanaan proyek software, manajemen risiko, dan estimasi biaya</p>
+          <div class="mat-card-footer">
+            <span class="mat-files"></span>
+            <div class="aksesfile-wrap">
+              <button class="btn-aksesfile" onclick="toggleDropdown(this)">
+                Akses File <span class="arrow-icon">▾</span>
+              </button>
+              <div class="aksesfile-dropdown">
+                <a href="https://drive.google.com/drive/folders/1ky-aDOekDy-MhjlxoFxXXcYUikfJO2yq?usp=drive_link" target="_blank" class="dropdown-item">📁 Materi</a>
+                <a href="https://drive.google.com/drive/folders/1v-Kv_ABhgT-t72E3g2pZjIjj3PrD-vtM?usp=drive_link" target="_blank" class="dropdown-item">📝 Tugas</a>
+                <a href="https://drive.google.com/drive/folders/1gAik5-m9dlUBunA9lmXgMMi9YQ7FciTd?usp=drive_link" target="_blank" class="dropdown-item">📄 UTS</a>
+                <a href="https://drive.google.com/drive/folders/1ain2hpsZnYyQ94LzdcciBA1MOi4-DjV-?usp=drive_link" target="_blank" class="dropdown-item">📄 UAS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end #matGrid -->
+
+    <!-- ── SEPARATOR KK ── -->
+    <div class="kk-separator" id="kkSeparator">
+      <div class="kk-line"></div>
+      <span class="kk-label">KELOMPOK KEAHLIAN (KK)</span>
+      <div class="kk-line"></div>
+    </div>
+
+    <!-- ── GRID CARD KELOMPOK KEAHLIAN ── -->
+    <div class="kk-grid" id="kkGrid">
+      <div class="kk-card scroll-reveal" data-delay="0" id="kk-isi">
+        <div class="kk-card-top">
+          <div class="mat-thumb"></div>
+          <div class="mat-thumb-sm"></div>
+        </div>
+        <div class="kk-card-body">
+          <h3 class="mat-card-title">Kelompok ISI (Informatika dan Sistem Inteligen)</h3>
+          <span class="mat-badge badge-kk">Wajib</span>
+          <p class="mat-card-desc">Berfokus pada pengembangan sistem cerdas yang mampu mengolah data, mengenali pola, dan membantu menyelesaikan masalah menggunakan teknologi kecerdasan buatan (AI). Seperti, Deep Learning, Robotika, Rekayasa Data, dll.</p>
+        </div>
+      </div>
+
+      <div class="kk-card scroll-reveal" data-delay="100" id="kk-jkf">
+        <div class="kk-card-top">
+          <div class="mat-thumb"></div>
+          <div class="mat-thumb-sm"></div>
+        </div>
+        <div class="kk-card-body">
+          <h3 class="mat-card-title">Kelompok JKF (Jaringan Komputer dan Forensik)</h3>
+          <span class="mat-badge badge-kk">Wajib</span>
+          <p class="mat-card-desc">Mempelajari cara komputer saling terhubung dalam jaringan, menjaga keamanan sistem dari serangan siber, serta melakukan investigasi terhadap berbagai kasus dan bukti digital. Seperti, Digital Forensics, Ethical Hacking, Kriptografi, dll.</p>
+        </div>
+      </div>
+
+      <div class="kk-card scroll-reveal" data-delay="200" id="kk-tmg">
+        <div class="kk-card-top">
+          <div class="mat-thumb"></div>
+          <div class="mat-thumb-sm"></div>
+        </div>
+        <div class="kk-card-body">
+          <h3 class="mat-card-title">Kelompok TMG (Teknologi Multimedia & Game)</h3>
+          <span class="mat-badge badge-kk">Wajib</span>
+          <p class="mat-card-desc">Berfokus pada pengembangan multimedia, animasi, pengolahan gambar, dan gim untuk menciptakan pengalaman digital yang menarik dan interaktif. SEperti, Sistem Multimedia, Animasi Komputer, Rekayasa Gim, dll.</p>
+        </div>
+      </div>
+    </div><!-- end #kkGrid -->
+
+    <div class="empty-state" id="emptyState">
+      <p>😶 Mata kuliah "<span id="emptyQuery"></span>" tidak ditemukan.</p>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 symatika. All right reserved</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/materials.js"></script>
+</body>
+</html>
