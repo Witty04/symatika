@@ -84,38 +84,72 @@ sortSelect.addEventListener('change', () => {
 //    - Urutan sort
 // -----------------------------------------------
 
+// ----------------------------------------------
+// 3. FUNGSI UTAMA FILTER & PENCARIAN (FIXED BY GEMINI)
+// ----------------------------------------------
 function applyFilter() {
-  const query      = searchInput.value.trim().toLowerCase();
-  const sortMode   = sortSelect.value;
-  const typeFilter = document.getElementById('typeSelect').value;
+  // Ambil teks pencarian asli dari user tanpa merusak teks aslinya
+  const rawQuery = searchInput.value;
+  const query = rawQuery.toLowerCase().trim();
+  
+  const sortValue = sortSelect.value;
+  let visibleCards = 0;
 
-  // Kumpulkan card yang lolos filter
-  let visibleCards = [];
+  // Array sementara untuk menampung card yang lolos filter semester & search
+  let filteredCards = [];
 
- allCards.forEach(card => {
-    const cardSem   = parseInt(card.getAttribute('data-sem'));
-    const cardName  = card.getAttribute('data-name').toLowerCase();
+  allCards.forEach(card => {
+    const cardSem = parseInt(card.getAttribute('data-sem'));
+    const cardTitle = card.querySelector('.mat-card-title').textContent.toLowerCase();
+    const cardDesc  = card.querySelector('.mat-card-desc').textContent.toLowerCase();
 
-    // Ambil text badge di dalam card (wajib atau umum) untuk dicocokkan
-    const badgeText = card.querySelector('.mat-badge').textContent.trim().toLowerCase();
-
-    // ── LOGIKA FILTER SEMESTER (Jika activeSemester NaN / 'all', loloskan semua) ──
-    const semMatch = isNaN(activeSemester) || cardSem === activeSemester;
-
-    // ── LOGIKA FILTER SEARCH ──
-    const searchMatch = cardName.includes(query);
-
-    // ── LOGIKA FILTER TYPE (Wajib / Umum) ──
-    const typeMatch = typeFilter === 'all' || badgeText === typeFilter;
-
-    // Gabungkan ketiga filter
-    if (semMatch && searchMatch && typeMatch) {
-      card.style.display = ''; 
-      visibleCards.push(card);
+    // Logika filter: Harus cocok dengan semester aktif DAN (cocok judul ATAU cocok deskripsi)
+    if (cardSem === activeSemester && (cardTitle.includes(query) || cardDesc.includes(query))) {
+      filteredCards.push(card);
     } else {
       card.style.display = 'none';
     }
   });
+
+  // --- LOGIKA URUTKAN (SORTING) ---
+  if (sortValue === 'az') {
+    filteredCards.sort((a, b) => {
+      const titleA = a.querySelector('.mat-card-title').textContent.trim();
+      const titleB = b.querySelector('.mat-card-title').textContent.trim();
+      return titleA.localeCompare(titleB);
+    });
+  } else if (sortValue === 'za') {
+    filteredCards.sort((a, b) => {
+      const titleA = a.querySelector('.mat-card-title').textContent.trim();
+      const titleB = b.querySelector('.mat-card-title').textContent.trim();
+      return titleB.localeCompare(titleA);
+    });
+  }
+
+  // Tampilkan card yang sudah disaring dan diurutkan kembali ke dalam grid
+  filteredCards.forEach(card => {
+    card.style.display = '';
+    matGrid.appendChild(card);
+    visibleCards++;
+  });
+
+  // --- KENDALI KATEGORI KEAHLIAN (KK) & EMPTY STATE ---
+  if (query !== "") {
+    kkSeparator.style.display = 'none';
+    kkGrid.style.display = 'none';
+  } else {
+    kkSeparator.style.display = '';
+    kkGrid.style.display = '';
+  }
+
+  if (visibleCards === 0) {
+    emptyState.classList.add('visible');
+    // 🎯 FIX UTAMA: Menampilkan kata kunci asli yang diketik user tanpa singkatan ngaco
+    emptyQuery.textContent = rawQuery; 
+  } else {
+    emptyState.classList.remove('visible');
+  }
+}
 
   // ── Sort: urutkan card yang terlihat ──
   visibleCards.sort((a, b) => {
@@ -147,7 +181,7 @@ function applyFilter() {
     emptyState.classList.remove('visible');
     matGrid.style.display = '';
   }
-}
+
 
 document.getElementById('typeSelect').addEventListener('change', () => {
   applyFilter();
