@@ -267,3 +267,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Tutup otomatis laci navbar saat menu di-klik di mobile
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.classList.remove('active');
+  });
+});

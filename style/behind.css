@@ -563,66 +563,166 @@
   margin: 0;
 }
 
-/* RESPONSIVE: Di HP otomatis jadi 2 kolom berjejer kebawah biar gak sempit */
-@media (max-width: 768px) {
-  .builtwith-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-/* ========================================================
-   📱 RESPONSIVE BEHIND PAGE (BY GEMINI FOR DITA)
-   ======================================================== */
-/* ========================================================
-   📱 RESPONSIVE BEHIND PAGE (KODE FIX TOTAL SOSMED KE TENGAH)
-   ======================================================== */
 @media (max-width: 768px) {
+  /* 1. GEMBOK GLOBAL: Anti melorot/geser kanan di halaman behind */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* 2. NAVBAR MOBILE FIXED (Sama persis dengan halaman sebelum-sebelumnya) */
+  .navbar {
+    padding: 12px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important; /* Melempar jauh menu ke kanan luar agar GAIB */
+    width: 75% !important;
+    height: 100vh !important;
+    background: #0a0b14 !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+    padding: 60px 40px !important;
+    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) !important; 
+    z-index: 1000 !important;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5) !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-links.active {
+    right: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-toggle {
+    display: flex !important; /* Memaksa muncul hamburger */
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 28px !important;
+    height: 20px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    z-index: 1001 !important;
+  }
+
+  .nav-toggle span {
+    display: block !important;
+    width: 100% !important;
+    height: 2.5px !important;
+    background-color: var(--text-primary) !important;
+    border-radius: 2px !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+  }
+
+  /* Animasi X Hamburger */
+  .nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg) !important; }
+  .nav-toggle.active span:nth-child(2) { opacity: 0 !important; }
+  .nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg) !important; }
+
+  /* 3. PAGE INTRO (HEADER) RAPI */
   .behind-main {
-    padding: 30px 16px !important;
+    padding: 100px 16px 40px !important; /* Jarak pas dari navbar fixed */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .behind-header {
+    text-align: center !important;
+    margin-bottom: 30px !important;
   }
 
   .behind-header h1 {
-    font-size: 1.8rem !important;
+    font-size: 2.0rem !important;
+    line-height: 1.2 !important;
   }
 
-  /* 1. Ubah susunan profil dari menyamping jadi atas-bawah */
+  /* 4. MAIN CONTENT SECTION & PROFILE LAYOUT (KOLOM KIRI & KANAN) */
   .profile-layout {
-    grid-template-columns: 1fr !important;
-    gap: 30px !important;
+    grid-template-columns: 1fr !important; /* Paksa kolom kiri & kanan berbaris atas-bawah */
+    gap: 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  /* 2. Kotak foto di tengah */
+  /* Kolom Kiri: Box Foto Profil */
   .profile-left {
-    position: static !important; 
-    width: 200px !important;
-    margin: 0 auto !important; 
+    position: static !important; /* Lepas efek sticky desktop di HP */
+    width: 160px !important; /* Ukuran pas di HP */
+    margin: 0 auto !important; /* Center otomatis di tengah */
   }
 
   .profile-photo-wrap {
-    height: 200px !important;
+    height: 160px !important;
   }
 
-  /* 3. 🎯 KUNCI UTAMA: Jinakkan bos .profile-right agar semuanya mau ke tengah */
+  /* Kolom Kanan: Box Bio & Terminal Terminal */
   .profile-right {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; /* <--- Ini yang bikin nama & bio pindah tengah sempurna */
+    align-items: center !important; /* Pindahkan semua info teks bio ke tengah */
     text-align: center !important;
-    gap: 16px !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding: 16px !important; /* Sempitkan padding agar pas di HP */
+    box-sizing: border-box !important;
   }
 
-  /* 4. 🎯 KUNCI KEDUA: Maksa tombol sosmed sejajar rapi di tengah */
+  /* Header terminal di dalam bio tetap rata kiri biar estetik ala programmer */
+  .profile-terminal-header {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Tombol media sosial sejajar rapi di tengah */
   .profile-socials {
     display: flex !important;
-    justify-content: center !important; /* <--- Ini yang bikin tombol sosmed pindah tengah */
+    justify-content: center !important;
     align-items: center !important;
     gap: 12px !important;
     width: 100% !important;
   }
 
-  /* Grid teknologi builtwith di bawah */
+  /* 5. KOMPONEN BUILT WITH (GRID TEKNOLOGI) */
   .builtwith-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr !important; /* Paksa kartu HTML, CSS, JS lurus kebawah */
     gap: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .builtwith-card {
+    padding: 20px !important;
+    text-align: center !important;
+  }
+
+  /* 6. GENERAL FOOTER */
+  .footer {
+    padding: 24px 16px !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Tetap sembunyikan hamburger di laptop */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none !important;
   }
 }

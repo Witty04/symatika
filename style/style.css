@@ -703,119 +703,190 @@ ul { list-style: none; }
 /* ========================================================
    📱 RESPONSIVE GLOBAL & NAVBAR MOBILE (BY GEMINI FOR DITA)
    ======================================================== */
+/* ========================================================
+   📱 RESPONSIVE GLOBAL, NAVBAR, & HOME LOCK (BY GEMINI)
+   ======================================================== */
 @media (max-width: 768px) {
-  /* --- 1. Perbaikan Base & Layout Utama --- */
-  body {
-    padding: 0;
-    overflow-x: hidden; /* Mencegah halaman bisa digeser ke kanan-kiri */
+  /* 1. GEMBOK GLOBAL: Anti melorot/geser kanan di semua device */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
   }
 
-  /* --- 2. Desain Tombol Garis Tiga (Hamburger) --- */
-  .nav-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 26px;
-    height: 18px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
+  /* 2. NAVBAR MOBILE */
+  /* 2. NAVBAR MOBILE (PERBAIKAN AKTIVASI KLIK) */
+  .navbar {
+    padding: 12px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  .nav-toggle span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-primary);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  /* --- 3. Mengubah Menu Menjadi Dropdown Mobile --- */
   .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Sembunyikan menu di sebelah kanan layar */
-    width: 70%; /* Lebar menu dropdown saat terbuka */
-    height: 100vh;
-    background: rgba(15, 17, 35, 0.98);
-    backdrop-filter: blur(20px);
-    border-left: 1px solid var(--border-subtle);
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 35px !important;
-    padding: 60px 40px;
-    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-    z-index: 1000;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important; /* Melempar menu jauh ke kanan */
+    width: 75% !important;
+    height: 100vh !important;
+    background: #0a0b14 !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+    padding: 60px 40px !important;
+    /* Gunakan transisition right saja biar sinkron sama class active */
+    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) !important; 
+    z-index: 1000 !important;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5) !important;
+    opacity: 0; /* Mencegah bayangan box-shadow ngintip */
+    pointer-events: none; /* Mengunci menu biar gak bisa diklik pas sembunyi */
   }
 
-  /* Ketika ditambahkan class .active via JS, menu akan bergeser masuk */
+  /* Ketika tombol hamburger diklik (Menu Aktif) */
   .nav-links.active {
-    right: 0;
+    right: 0 !important; /* Menarik menu masuk ke layar */
+    opacity: 1 !important;
+    pointer-events: auto !important; /* Mengaktifkan klik tombol menu */
   }
 
-  /* --- 4. Animasi Hamburger Menu Menjadi Huruf (X) --- */
-  .nav-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .nav-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+  /* 4. Tombol Garis Tiga (Hamburger) - PERBAIKAN TOTAL */
+  .nav-toggle {
+    display: flex !important; /* Memaksa muncul di HP */
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 28px !important;  /* Lebar garis dipertegas */
+    height: 20px !important; /* Tinggi area tombol */
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    z-index: 1001 !important;
   }
 
-  /* --- 5. Perbaikan Halaman Utama (index.html) --- */
+  /* Ini bapaknya garis yang bikin bentuknya tegak lurus sama dengan tiga */
+  .nav-toggle span {
+    display: block !important;
+    width: 100% !important;   /* Memaksa garis memanjang penuh ke samping */
+    height: 2.5px !important;  /* Ketebalan garis biar gak jadi titik */
+    background-color: var(--text-primary) !important; /* Warna putih terang */
+    border-radius: 2px !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+  }
+
+  /* 3. HERO SECTION RAPI */
   .hero-section {
-    padding: 100px 20px 60px !important;
-    text-align: center;
+    padding: 120px 16px 40px !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-title {
-    font-size: 2.6rem !important; /* Susutkan dari 5rem agar pas di layar HP */
-    line-height: 1.2;
-    margin-bottom: 15px;
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
   }
 
   .hero-subtitle {
-    font-size: 1.4rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 16px !important;
   }
 
   .hero-desc {
     font-size: 0.85rem !important;
     max-width: 100% !important;
+    margin-bottom: 28px !important;
   }
 
   .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    flex-direction: column !important; /* Tombol berjejer ke bawah */
+    gap: 12px !important;
+    width: 100% !important;
   }
 
   .hero-buttons .btn {
-    width: 100%; /* Tombol memanjang penuh di HP */
-    justify-content: center;
+    width: 100% !important;
+    justify-content: center !important;
   }
 
-  /* Preview Grid di halaman depan */
+  /* 4. FEATURES SECTION (2 KARTU JADI ATAS-BAWAH) */
+  .features-section {
+    padding: 40px 16px !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr !important; /* Paksa jadi 1 kolom lurus ke bawah */
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .feature-card {
+    padding: 24px 20px !important;
+  }
+
+  /* 5. HOW IT WORKS SECTION */
+  .how-it-works {
+    padding: 40px 16px !important;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr !important; /* Paksa langkah 1, 2, 3 urut kebawah */
+    gap: 24px !important;
+  }
+
+  .step-card {
+    padding: 24px !important;
+  }
+
+  /* 6. LEARNING MATERIALS PREVIEW (KARTU PREVIEW MATERI) */
+  .preview-section {
+    padding: 40px 16px !important;
+  }
+
+  /* Perbaikan judul preview & tombol View All biar gak tabrakan */
+  .preview-header {
+    flex-direction: column !important; 
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .preview-header-left {
+    text-align: center !important;
+  }
+
   .preview-grid {
-    grid-template-columns: 1fr !important; /* Paksa jadi 1 kolom ke bawah */
-    padding: 20px !important;
-    gap: 24px;
+    grid-template-columns: 1fr !important; /* Kartu materi lurus kebawah, gak desak-desakan */
+    gap: 20px !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
 
+  /* 7. FOOTER CALL TO ACTION (CTA) */
   .footer-cta {
-    padding: 40px 20px !important;
+    padding: 40px 16px !important;
+    text-align: center !important;
   }
 
-  .footer-cta-text {
-    font-size: 1.1rem !important;
+  .cta-title {
+    font-size: 1.8rem !important;
+  }
+
+  .footer {
+    padding: 24px 16px !important;
+    text-align: center !important;
   }
 }
 
-/* Sembunyikan tombol toggle di desktop */
+/* Tetap sembunyikan hamburger di desktop */
 @media (min-width: 769px) {
   .nav-toggle {
     display: none !important;

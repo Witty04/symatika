@@ -24,3 +24,11 @@ tabBtns.forEach(btn => {
     });
   });
 });
+
+// Tutup laci navbar otomatis ketika menu di-klik pada mode mobile
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.classList.remove('active');
+  });
+});

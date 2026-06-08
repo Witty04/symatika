@@ -135,3 +135,11 @@ window.addEventListener('scroll', () => {
     navbar.style.boxShadow = 'none';
   }
 });
+
+// Memastikan laci navbar menutup otomatis ketika salah satu menu di-klik di mobile
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    navToggle.classList.remove('active');
+  });
+});
