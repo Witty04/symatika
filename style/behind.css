@@ -569,3 +569,60 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ========================================================
+   📱 RESPONSIVE BEHIND PAGE (BY GEMINI FOR DITA)
+   ======================================================== */
+/* ========================================================
+   📱 RESPONSIVE BEHIND PAGE (KODE FIX TOTAL SOSMED KE TENGAH)
+   ======================================================== */
+@media (max-width: 768px) {
+  .behind-main {
+    padding: 30px 16px !important;
+  }
+
+  .behind-header h1 {
+    font-size: 1.8rem !important;
+  }
+
+  /* 1. Ubah susunan profil dari menyamping jadi atas-bawah */
+  .profile-layout {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  /* 2. Kotak foto di tengah */
+  .profile-left {
+    position: static !important; 
+    width: 200px !important;
+    margin: 0 auto !important; 
+  }
+
+  .profile-photo-wrap {
+    height: 200px !important;
+  }
+
+  /* 3. 🎯 KUNCI UTAMA: Jinakkan bos .profile-right agar semuanya mau ke tengah */
+  .profile-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* <--- Ini yang bikin nama & bio pindah tengah sempurna */
+    text-align: center !important;
+    gap: 16px !important;
+  }
+
+  /* 4. 🎯 KUNCI KEDUA: Maksa tombol sosmed sejajar rapi di tengah */
+  .profile-socials {
+    display: flex !important;
+    justify-content: center !important; /* <--- Ini yang bikin tombol sosmed pindah tengah */
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Grid teknologi builtwith di bawah */
+  .builtwith-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}

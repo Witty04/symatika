@@ -699,3 +699,125 @@ ul { list-style: none; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 3px; }
 ::selection { background: var(--accent-purple); color: #fff; }
+
+/* ========================================================
+   📱 RESPONSIVE GLOBAL & NAVBAR MOBILE (BY GEMINI FOR DITA)
+   ======================================================== */
+@media (max-width: 768px) {
+  /* --- 1. Perbaikan Base & Layout Utama --- */
+  body {
+    padding: 0;
+    overflow-x: hidden; /* Mencegah halaman bisa digeser ke kanan-kiri */
+  }
+
+  /* --- 2. Desain Tombol Garis Tiga (Hamburger) --- */
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .nav-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* --- 3. Mengubah Menu Menjadi Dropdown Mobile --- */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Sembunyikan menu di sebelah kanan layar */
+    width: 70%; /* Lebar menu dropdown saat terbuka */
+    height: 100vh;
+    background: rgba(15, 17, 35, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border-subtle);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px !important;
+    padding: 60px 40px;
+    transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+    z-index: 1000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Ketika ditambahkan class .active via JS, menu akan bergeser masuk */
+  .nav-links.active {
+    right: 0;
+  }
+
+  /* --- 4. Animasi Hamburger Menu Menjadi Huruf (X) --- */
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* --- 5. Perbaikan Halaman Utama (index.html) --- */
+  .hero-section {
+    padding: 100px 20px 60px !important;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.6rem !important; /* Susutkan dari 5rem agar pas di layar HP */
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem !important;
+  }
+
+  .hero-desc {
+    font-size: 0.85rem !important;
+    max-width: 100% !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%; /* Tombol memanjang penuh di HP */
+    justify-content: center;
+  }
+
+  /* Preview Grid di halaman depan */
+  .preview-grid {
+    grid-template-columns: 1fr !important; /* Paksa jadi 1 kolom ke bawah */
+    padding: 20px !important;
+    gap: 24px;
+  }
+
+  .footer-cta {
+    padding: 40px 20px !important;
+  }
+
+  .footer-cta-text {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Sembunyikan tombol toggle di desktop */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none !important;
+  }
+}

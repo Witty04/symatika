@@ -624,3 +624,48 @@ body {
 .empty-state.visible {
   display: block;
 }
+
+/* ========================================================
+   📱 RESPONSIVE MATERIALS PAGE (BY GEMINI FOR DITA)
+   ======================================================== */
+@media (max-width: 768px) {
+  .mat-main {
+    padding: 30px 20px !important;
+  }
+
+  .mat-header h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Pengendali filter semester */
+  .filter-controls {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .semester-filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi tombol semester 2x2 */
+    gap: 8px;
+  }
+
+  .search-sort-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-wrapper, .sort-select {
+    width: 100% !important;
+  }
+
+  /* ⚡ KUNCI UTAMA: Ubah grid 3 kolom menjadi 1 kolom vertikal */
+  .mat-grid, #kkGrid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .mat-card, .kk-card {
+    max-width: 100% !important;
+  }
+}
