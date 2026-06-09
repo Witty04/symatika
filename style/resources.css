@@ -481,28 +481,63 @@
 
   /* 3. PAGE HEADER RAPI */
   /* 3. PAGE HEADER RAPI (Disesuaikan biar muat di semua HP) */
-  .dev-main {
-    padding: 90px 14px 30px !important;
+  /* Wrapper flex row → ubah jadi kolom agar tidak meluap */
+  .page-header {
+    flex-direction: column !important;   /* Ikon & teks susun vertikal di HP */
+    align-items: flex-start !important;
+    padding: 28px 16px 16px !important;  /* Kurangi padding samping */
+    gap: 12px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Ikon header sedikit dikecilkan */
+  .page-header-icon {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+  }
+
+  /* JUDUL — ini inti perbaikannya */
+  .page-title {
+    font-size: 1.7rem !important;        /* Dari 2.5rem → 1.7rem, proporsional di HP */
+    line-height: 1.25 !important;
+    white-space: normal !important;      /* Paksa teks bisa turun baris */
+    word-break: break-word !important;   /* Potong kata jika layar sangat sempit */
+    overflow-wrap: break-word !important;
+    letter-spacing: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Deskripsi di bawah judul */
+  .page-desc {
+    font-size: 0.82rem !important;
+    white-space: normal !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+
+  /* Hapus efek hover di .page-header pada mobile
+     (tidak relevan di layar sentuh & bisa glitch) */
+  .page-header:hover {
+    transform: none !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Res-tabs juga disesuaikan padding-nya */
+  .res-tabs {
+    padding: 0 16px 24px !important;
     box-sizing: border-box !important;
   }
 
-  .dev-header {
-    text-align: center !important;
-    margin-bottom: 24px !important;
-    width: 100% !important;
-  }
-
-  .dev-title {
-    font-size: 1.8rem !important; /* 🎯 Turunkan ke 1.8rem juga biar serasi dan rapi di iPhone/Android */
-    line-height: 1.3 !important;
-    letter-spacing: -0.02em !important;
-    word-wrap: break-word !important;
-  }
-
-  .dev-subtitle {
-    font-size: 0.9rem !important;
-    max-width: 100% !important;
+  /* Res-main padding */
+  .res-main {
+    padding: 0 16px 40px !important;
+    box-sizing: border-box !important;
   }
 
   /* 4. CATEGORY TABS (Scrollable horizontal yang smooth khusus di HP) */
